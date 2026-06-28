@@ -1,4 +1,22 @@
-# React + TypeScript + Vite
+# Foodbanked App
+
+This is the foodbanked application a user interacts with. This contains the frontend + the node backend server that will act as the handler for the backend later. 
+
+## How to get started on this project
+
+1. npm i - This will install all the necessary packages that this app needs
+2. npm run dev - This will start a interactive web page that you can change live 
+3. npm run build - This creates the dist folder with the built webpage that will be served to our users
+
+## Folder Structure
+
+This is how we will structure our project 
+
+1. Raw files you want to send unchanged put in the public folder
+2. 
+
+## From init installation info
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

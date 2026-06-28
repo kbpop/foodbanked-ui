@@ -7,6 +7,10 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  // exmaple of request
+  fetch('/api/hello').then((resp)=>
+  console.log(resp.json()))
+
   return (
     <>
       <section id="center">
@@ -16,7 +20,7 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Get started</h1>
+          <h1>Get started here</h1>
           <p>
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
