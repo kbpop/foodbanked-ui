@@ -1,15 +1,15 @@
-import { useState, type FormEvent } from 'react'
-import { Link } from 'react-router'
-import './Login.css'
+import { useState, type FormEvent } from "react";
+import { Link } from "react-router";
+import "./Login.css";
 
 function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+    event.preventDefault();
     // TODO: call the backend login endpoint once it exists
-    console.log('login attempt', { email, password })
+    console.log("login attempt", { email, password });
   }
 
   return (
@@ -42,7 +42,7 @@ function Login() {
         </p>
       </form>
     </section>
-  )
+  );
 }
 
-export default Login
+export default Login;
