@@ -1,5 +1,5 @@
-import { Link } from 'react-router'
-import './Landing.css'
+import { Link } from "react-router";
+import "./Landing.css";
 
 function Landing() {
   return (
@@ -7,8 +7,8 @@ function Landing() {
       <div className="landing-content">
         <h1>FoodBanked</h1>
         <p className="tagline">
-          Connecting communities with food banks — find what you need, or
-          give what you can.
+          Connecting communities with food banks — find what you need, or give
+          what you can.
         </p>
         <div className="landing-actions">
           <Link to="/login" className="btn btn-primary">
@@ -20,7 +20,7 @@ function Landing() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Landing
+export default Landing;

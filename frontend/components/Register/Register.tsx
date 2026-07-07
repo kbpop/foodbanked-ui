@@ -1,28 +1,28 @@
-import { useState, type FormEvent } from 'react'
-import { Link } from 'react-router'
-import './Register.css'
+import { useState, type FormEvent } from "react";
+import { Link } from "react-router";
+import "./Register.css";
 
-type AccountType = 'donor' | 'employee' | 'partner'
+type AccountType = "donor" | "employee" | "partner";
 
 function Register() {
-  const [accountType, setAccountType] = useState<AccountType>('donor')
-  const [organization, setOrganization] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [accountType, setAccountType] = useState<AccountType>("donor");
+  const [organization, setOrganization] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const requiresVerification = accountType !== 'donor'
+  const requiresVerification = accountType !== "donor";
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+    event.preventDefault();
     // TODO: call the backend register endpoint once it exists
-    console.log('register attempt', {
+    console.log("register attempt", {
       accountType,
       organization: requiresVerification ? organization : undefined,
       email,
       password,
       confirmPassword,
-    })
+    });
   }
 
   return (
@@ -37,8 +37,8 @@ function Register() {
               type="radio"
               name="accountType"
               value="donor"
-              checked={accountType === 'donor'}
-              onChange={() => setAccountType('donor')}
+              checked={accountType === "donor"}
+              onChange={() => setAccountType("donor")}
             />
             Donor
           </label>
@@ -47,8 +47,8 @@ function Register() {
               type="radio"
               name="accountType"
               value="employee"
-              checked={accountType === 'employee'}
-              onChange={() => setAccountType('employee')}
+              checked={accountType === "employee"}
+              onChange={() => setAccountType("employee")}
             />
             Food Bank Employee
           </label>
@@ -57,8 +57,8 @@ function Register() {
               type="radio"
               name="accountType"
               value="partner"
-              checked={accountType === 'partner'}
-              onChange={() => setAccountType('partner')}
+              checked={accountType === "partner"}
+              onChange={() => setAccountType("partner")}
             />
             Partner Agency
           </label>
@@ -67,7 +67,7 @@ function Register() {
         {requiresVerification && (
           <>
             <label>
-              {accountType === 'employee' ? 'Food Bank Name' : 'Agency Name'}
+              {accountType === "employee" ? "Food Bank Name" : "Agency Name"}
               <input
                 type="text"
                 value={organization}
@@ -76,9 +76,9 @@ function Register() {
               />
             </label>
             <p className="verification-note">
-              {accountType === 'employee'
-                ? 'Food bank employee accounts must be verified by an administrator before you can log in.'
-                : 'Partner agency accounts must be verified by an administrator before you can log in.'}
+              {accountType === "employee"
+                ? "Food bank employee accounts must be verified by an administrator before you can log in."
+                : "Partner agency accounts must be verified by an administrator before you can log in."}
             </p>
           </>
         )}
@@ -118,7 +118,7 @@ function Register() {
         </p>
       </form>
     </section>
-  )
+  );
 }
 
-export default Register
+export default Register;
