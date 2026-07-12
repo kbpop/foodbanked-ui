@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router'
 import './Login.css'
 
-function Login() {
+export function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -44,5 +44,3 @@ function Login() {
     </section>
   )
 }
-
-export default Login
