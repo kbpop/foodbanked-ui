@@ -1,5 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router'
+import { AuthPage } from '../Auth/AuthPage.tsx'
+import { FormField } from '../Auth/FormField.tsx'
 import './Register.css'
 
 type AccountType = 'donor' | 'employee' | 'partner'
@@ -26,97 +28,73 @@ export function Register() {
   }
 
   return (
-    <section id="auth">
-      <form className="auth-form" onSubmit={handleSubmit}>
-        <h1>Register</h1>
+    <AuthPage onSubmit={handleSubmit}>
+      <h1>Register</h1>
 
-        <fieldset className="account-type">
-          <legend>I am a...</legend>
-          <label className="account-type-option">
-            <input
-              type="radio"
-              name="accountType"
-              value="donor"
-              checked={accountType === 'donor'}
-              onChange={() => setAccountType('donor')}
-            />
-            Donor
-          </label>
-          <label className="account-type-option">
-            <input
-              type="radio"
-              name="accountType"
-              value="employee"
-              checked={accountType === 'employee'}
-              onChange={() => setAccountType('employee')}
-            />
-            Food Bank Employee
-          </label>
-          <label className="account-type-option">
-            <input
-              type="radio"
-              name="accountType"
-              value="partner"
-              checked={accountType === 'partner'}
-              onChange={() => setAccountType('partner')}
-            />
-            Partner Agency
-          </label>
-        </fieldset>
+      <fieldset className="account-type">
+        <legend>I am a...</legend>
+        <label className="account-type-option">
+          <input
+            type="radio"
+            name="accountType"
+            value="donor"
+            checked={accountType === 'donor'}
+            onChange={() => setAccountType('donor')}
+          />
+          Donor
+        </label>
+        <label className="account-type-option">
+          <input
+            type="radio"
+            name="accountType"
+            value="employee"
+            checked={accountType === 'employee'}
+            onChange={() => setAccountType('employee')}
+          />
+          Food Bank Employee
+        </label>
+        <label className="account-type-option">
+          <input
+            type="radio"
+            name="accountType"
+            value="partner"
+            checked={accountType === 'partner'}
+            onChange={() => setAccountType('partner')}
+          />
+          Partner Agency
+        </label>
+      </fieldset>
 
-        {requiresVerification && (
-          <>
-            <label>
-              {accountType === 'employee' ? 'Food Bank Name' : 'Agency Name'}
-              <input
-                type="text"
-                value={organization}
-                onChange={(event) => setOrganization(event.target.value)}
-                required
-              />
-            </label>
-            <p className="verification-note">
-              {accountType === 'employee'
-                ? 'Food bank employee accounts must be verified by an administrator before you can log in.'
-                : 'Partner agency accounts must be verified by an administrator before you can log in.'}
-            </p>
-          </>
-        )}
+      {requiresVerification && (
+        <>
+          <FormField
+            label={accountType === 'employee' ? 'Food Bank Name' : 'Agency Name'}
+            type="text"
+            value={organization}
+            onChange={setOrganization}
+          />
+          <p className="verification-note">
+            {accountType === 'employee'
+              ? 'Food bank employee accounts must be verified by an administrator before you can log in.'
+              : 'Partner agency accounts must be verified by an administrator before you can log in.'}
+          </p>
+        </>
+      )}
 
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-            required
-          />
-        </label>
-        <button type="submit" className="btn btn-primary">
-          Register
-        </button>
-        <p className="auth-switch">
-          Already have an account? <Link to="/login">Log In</Link>
-        </p>
-      </form>
-    </section>
+      <FormField label="Email" type="email" value={email} onChange={setEmail} />
+      <FormField label="Password" type="password" value={password} onChange={setPassword} />
+      <FormField
+        label="Confirm Password"
+        type="password"
+        value={confirmPassword}
+        onChange={setConfirmPassword}
+      />
+      <button type="submit" className="btn btn-primary">
+        Register
+      </button>
+      <p className="auth-switch">
+        Already have an account? <Link to="/login">Log In</Link>
+      </p>
+    </AuthPage>
   )
 }

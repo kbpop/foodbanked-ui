@@ -22,4 +22,3 @@ export function Landing() {
     </section>
   )
 }
-

@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router'
-import './Login.css'
+import { AuthPage } from '../Auth/AuthPage.tsx'
+import { FormField } from '../Auth/FormField.tsx'
 
 export function Login() {
   const [email, setEmail] = useState('')
@@ -13,34 +14,16 @@ export function Login() {
   }
 
   return (
-    <section id="auth">
-      <form className="auth-form" onSubmit={handleSubmit}>
-        <h1>Log In</h1>
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
-        </label>
-        <button type="submit" className="btn btn-primary">
-          Log In
-        </button>
-        <p className="auth-switch">
-          Don&apos;t have an account? <Link to="/register">Register</Link>
-        </p>
-      </form>
-    </section>
+    <AuthPage onSubmit={handleSubmit}>
+      <h1>Log In</h1>
+      <FormField label="Email" type="email" value={email} onChange={setEmail} />
+      <FormField label="Password" type="password" value={password} onChange={setPassword} />
+      <button type="submit" className="btn btn-primary">
+        Log In
+      </button>
+      <p className="auth-switch">
+        Don&apos;t have an account? <Link to="/register">Register</Link>
+      </p>
+    </AuthPage>
   )
 }
