@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router'
-import Landing from './components/Landing/Landing.tsx'
-import Login from './components/Login/Login.tsx'
-import Register from './components/Register/Register.tsx'
+import { Landing } from './components/Landing/Landing.tsx'
+import { Login } from './components/Login/Login.tsx'
+import { Register } from './components/Register/Register.tsx'
 
 function App() {
   return (
