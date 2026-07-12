@@ -4,7 +4,7 @@ import './Register.css'
 
 type AccountType = 'donor' | 'employee' | 'partner'
 
-function Register() {
+export function Register() {
   const [accountType, setAccountType] = useState<AccountType>('donor')
   const [organization, setOrganization] = useState('')
   const [email, setEmail] = useState('')
@@ -120,5 +120,3 @@ function Register() {
     </section>
   )
 }
-
-export default Register
