@@ -45,3 +45,13 @@
 .auth-switch a {
   color: var(--accent);
 }
+
+.auth-error {
+  font-size: 13px;
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 0;
+}
