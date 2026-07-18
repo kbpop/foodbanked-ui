@@ -1,0 +1,37 @@
+.account-type {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.account-type legend {
+  font-size: 14px;
+  color: var(--text-h);
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+.auth-form .account-type-option {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.account-type-option input {
+  accent-color: var(--accent);
+}
+
+.verification-note {
+  font-size: 13px;
+  color: var(--text);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 0;
+}
