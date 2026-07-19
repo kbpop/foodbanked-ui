@@ -8,11 +8,21 @@
 
 .auth-form {
   width: 100%;
-  max-width: 360px;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   text-align: left;
+  padding: 32px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.auth-form h1 {
+  margin: 0 0 4px;
+  font-size: 32px;
 }
 
 .auth-form label {
@@ -25,10 +35,10 @@
 
 .auth-form input {
   font: inherit;
-  padding: 10px 12px;
-  border-radius: 6px;
+  padding: 12px 14px;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  background: var(--bg);
+  background: #f9fcfa;
   color: var(--text-h);
 }
 
@@ -40,8 +50,11 @@
 .auth-switch {
   text-align: center;
   font-size: 14px;
+  margin-top: 4px;
 }
 
 .auth-switch a {
   color: var(--accent);
+  font-weight: 600;
 }
+
