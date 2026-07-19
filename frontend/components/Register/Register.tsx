@@ -40,7 +40,7 @@ export function Register() {
       }
 
       await login({ email, password })
-      navigate('/')
+      navigate('/inventory')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
     }
