@@ -1,48 +1,39 @@
-import { useState, type FormEvent } from "react";
-import { Link } from "react-router";
-import "./Login.css";
+import { useState, type FormEvent } from 'react'
+import { Link, useNavigate } from 'react-router'
+import { AuthPage } from '../Auth/AuthPage.tsx'
+import { FormField } from '../Auth/FormField.tsx'
+import { login } from '../../lib/api.ts'
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export function Login() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState<string | null>(null)
+  const navigate = useNavigate()
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    // TODO: call the backend login endpoint once it exists
-    console.log("login attempt", { email, password });
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setError(null)
+
+    try {
+      await login({ email, password })
+      navigate('/')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+    }
   }
 
   return (
-    <section id="auth">
-      <form className="auth-form" onSubmit={handleSubmit}>
-        <h1>Log In</h1>
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
-        </label>
-        <button type="submit" className="btn btn-primary">
-          Log In
-        </button>
-        <p className="auth-switch">
-          Don&apos;t have an account? <Link to="/register">Register</Link>
-        </p>
-      </form>
-    </section>
-  );
+    <AuthPage onSubmit={handleSubmit}>
+      <h1>Log In</h1>
+      {error && <p className="auth-error">{error}</p>}
+      <FormField label="Email" type="email" value={email} onChange={setEmail} />
+      <FormField label="Password" type="password" value={password} onChange={setPassword} />
+      <button type="submit" className="btn btn-primary">
+        Log In
+      </button>
+      <p className="auth-switch">
+        Don&apos;t have an account? <Link to="/register">Register</Link>
+      </p>
+    </AuthPage>
+  )
 }
-
-export default Login;
