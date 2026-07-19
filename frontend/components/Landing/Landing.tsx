@@ -18,8 +18,8 @@ function Landing() {
           <Link to="/register" className="btn btn-secondary">
             Register
           </Link>
-          <Link to="/table" className="btn btn-secondary">
-            View Inventory
+          <Link to="/staff-inventory" className="btn btn-secondary">
+            Staff Inventory
           </Link>
         </div>
         <div className="landing-highlights">
